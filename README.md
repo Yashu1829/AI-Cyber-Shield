@@ -1,166 +1,652 @@
-# AI CyberShield - AI-Powered Cybersecurity Assistant
+# \# 🛡️ AI Cyber Shield
 
-![AI CyberShield Banner](https://via.placeholder.com/1200x400/1e3a8a/ffffff?text=AI+CyberShield)
+# 
 
-A comprehensive web application that provides AI-powered cybersecurity tools including phishing detection, password strength analysis, URL checking, and an AI cybersecurity assistant. Built with Python, Flask, and Google's Gemini AI.
+# <p align="center">
 
-## 🌟 Features
+# 
 
-### 🔍 Phishing Email Detector
-- Analyze emails and messages for potential phishing attempts
-- Identify suspicious patterns and common phishing tactics
-- Get instant risk assessment
+# !\[Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge\&logo=python)
 
-### 🧱 Password Strength Analyzer
-- Evaluate password strength on a scale of 1-10
-- Get immediate feedback on password security
-- Learn how to create stronger passwords
+# !\[Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge\&logo=flask)
 
-### 🌐 Malicious URL Checker
-- Check URLs for potential security risks
-- Identify suspicious domains and patterns
-- Get safety recommendations
+# !\[Google Gemini](https://img.shields.io/badge/Google-Gemini-orange?style=for-the-badge\&logo=google)
 
-### 💬 AI Cybersecurity Assistant
-- Get instant answers to cybersecurity questions
-- Learn about security best practices
-- Understand complex security concepts in simple terms
+# !\[SQLite](https://img.shields.io/badge/Database-SQLite-blue?style=for-the-badge\&logo=sqlite)
 
-## 🚀 Getting Started
+# 
 
-### Prerequisites
-- Python 3.8 or higher
-- Google Gemini API key (free tier available)
-- pip (Python package manager)
+# </p>
 
-### Installation
+# 
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cyber-security-ai.git
-   cd cyber-security-ai
-   ```
+# <h2 align="center">
 
-2. **Set up a virtual environment**
-   ```bash
-   # For Windows
-   python -m venv venv
-   .\venv\Scripts\activate
+# 🤖 AI-Powered Cybersecurity Assistant
 
-   # For macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
+# </h2>
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+# 
 
-4. **Configure your API key**
-   - Get your Google Gemini API key from [Google AI Studio](https://aistudio.google.com/)
-   - Open `app.py` and replace `YOUR_API_KEY` with your actual API key:
-     ```python
-     genai.configure(api_key="YOUR_API_KEY")
-     ```
+# \---
 
-5. **Run the application**
-   ```bash
-   python app.py
-   ```
+# 
 
-6. **Access the application**
-   Open your web browser and visit: `http://localhost:5000`
+# \# 📖 Overview
 
-## 🛠️ How It Works
+# 
 
-### Backend Architecture
-- Built with Python and Flask web framework
-- Uses Google's Gemini AI for natural language processing
-- RESTful API endpoints for each feature
-- Error handling and input validation
+# AI Cyber Shield is an intelligent cybersecurity assistant developed using \*\*Flask\*\*, \*\*Python\*\*, and \*\*Google Gemini AI\*\*. The application helps users improve cyber awareness by analyzing phishing emails, checking password strength, detecting suspicious URLs, and answering cybersecurity-related questions through an AI-powered chatbot.
 
-### Frontend Design
-- Responsive UI built with Tailwind CSS
-- Interactive tabs for easy navigation
-- Sample data for quick testing
-- Real-time feedback and loading states
+# 
 
-### AI Integration
-- Uses Google's Gemini 2.5 Flash model
-- Optimized prompts for accurate responses
-- Rate limiting and error handling
+# The platform combines modern AI capabilities with a simple web interface to provide quick and accessible cybersecurity guidance.
 
-## 📚 Usage Guide
+# 
 
-### Phishing Email Detection
-1. Navigate to the "Phishing Detector" tab
-2. Paste the suspicious email content
-3. Click "Analyze Email"
-4. Review the analysis results
+# \---
 
-### Password Strength Analysis
-1. Go to the "Password Analyzer" tab
-2. Enter a password to test
-3. View the strength rating and suggestions
-4. Try different passwords to compare
+# 
 
-### URL Safety Check
-1. Select the "URL Checker" tab
-2. Enter the URL to analyze
-3. Click "Check URL"
-4. Review the safety assessment
+# \# ✨ Features
 
-### AI Cybersecurity Assistant
-1. Open the "AI Assistant" tab
-2. Type your cybersecurity question
-3. Press Enter or click the send button
-4. Get an instant, informative response
+# 
 
-## 🔧 Troubleshooting
+# \- 🔐 User Registration \& Login
 
-### Common Issues
-- **API Key Errors**: Ensure your Google Gemini API key is correctly set in `app.py`
-- **Connection Issues**: Verify your internet connection
-- **Empty Responses**: Try rephrasing your question or using different input
+# \- 📧 AI-based Phishing Email Detection
 
-### Getting Help
-If you encounter any issues, please:
-1. Check the browser's developer console for errors (F12)
-2. Review the terminal output for backend errors
-3. Ensure all dependencies are installed correctly
+# \- 🔑 Password Strength Analyzer
 
-## 📦 Dependencies
+# \- 🌐 Malicious URL Detection
 
-### Backend
-- Flask 2.3.3
-- google-generativeai 0.3.2
-- python-dotenv 1.0.0
-- requests 2.31.0
+# \- 🤖 Cybersecurity AI Chat Assistant
 
-### Frontend
-- Tailwind CSS 2.2.19
-- Font Awesome 6.0.0
-- Vanilla JavaScript
+# \- 👤 User Authentication
 
-## 📄 License
+# \- 💾 SQLite Database
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# \- ⚡ Fast \& Responsive Web Interface
 
-## 🙏 Acknowledgments
+# 
 
-- Google for the Gemini AI
-- The open-source community for various libraries and tools
-- All contributors who helped improve this project
+# \---
 
-## 📬 Contact
+# 
 
-For questions or feedback, please contact:
-- Email: your.email@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+# \# 🛠️ Tech Stack
 
----
+# 
 
-<div align="center">
-  Made with ❤️ for better cybersecurity
-</div>
+# \## Backend
+
+# 
+
+# \- Python
+
+# \- Flask
+
+# 
+
+# \## Frontend
+
+# 
+
+# \- HTML5
+
+# \- CSS3
+
+# \- JavaScript
+
+# 
+
+# \## AI
+
+# 
+
+# \- Google Gemini API
+
+# 
+
+# \## Database
+
+# 
+
+# \- SQLite
+
+# 
+
+# \## Version Control
+
+# 
+
+# \- Git
+
+# \- GitHub
+
+# 
+
+# \---
+
+# 
+
+# \# 📂 Project Structure
+
+# 
+
+# ```text
+
+# AI-Cyber-Shield/
+
+# │
+
+# ├── app.py
+
+# ├── requirements.txt
+
+# ├── README.md
+
+# ├── .gitignore
+
+# │
+
+# ├── templates/
+
+# │   ├── landing.html
+
+# │   ├── login.html
+
+# │   ├── register.html
+
+# │   └── index.html
+
+# │
+
+# ├── static/
+
+# │
+
+# └── screenshots/
+
+# ```
+
+# 
+
+# \---
+
+# 
+
+# \# 🚀 Installation
+
+# 
+
+# \## Clone Repository
+
+# 
+
+# ```bash
+
+# git clone https://github.com/Yashu1829/AI-Cyber-Shield.git
+
+# ```
+
+# 
+
+# \## Move into Project
+
+# 
+
+# ```bash
+
+# cd AI-Cyber-Shield
+
+# ```
+
+# 
+
+# \## Create Virtual Environment
+
+# 
+
+# ```bash
+
+# python -m venv venv
+
+# ```
+
+# 
+
+# \## Activate Virtual Environment
+
+# 
+
+# \### Windows
+
+# 
+
+# ```bash
+
+# venv\\Scripts\\activate
+
+# ```
+
+# 
+
+# \### Linux / macOS
+
+# 
+
+# ```bash
+
+# source venv/bin/activate
+
+# ```
+
+# 
+
+# \## Install Dependencies
+
+# 
+
+# ```bash
+
+# pip install -r requirements.txt
+
+# ```
+
+# 
+
+# \## Create Environment File
+
+# 
+
+# Create a file named `.env`
+
+# 
+
+# ```env
+
+# GOOGLE\_API\_KEY=YOUR\_API\_KEY
+
+# ```
+
+# 
+
+# \## Run Application
+
+# 
+
+# ```bash
+
+# python app.py
+
+# ```
+
+# 
+
+# Open
+
+# 
+
+# ```
+
+# http://127.0.0.1:5000/
+
+# ```
+
+# 
+
+# \---
+
+# 
+
+# \# 📸 Application Screenshots
+
+# 
+
+# \## 🏠 Landing Page
+
+# 
+
+# The landing page introduces AI Cyber Shield and provides users with an overview of the platform's AI-powered cybersecurity tools.
+
+# 
+
+# !\[Landing Page](screenshots/landing.png)
+
+# 
+
+# \---
+
+# 
+
+# \## 🔐 Login Page
+
+# 
+
+# Secure authentication system allowing registered users to access the cybersecurity platform.
+
+# 
+
+# !\[Login Page](screenshots/login.png)
+
+# 
+
+# \---
+
+# 
+
+# \## 📧 Phishing Email Detector
+
+# 
+
+# Detects phishing emails using AI to identify suspicious content, social engineering attempts, and potential cyber threats.
+
+# 
+
+# !\[Phishing Email Detector](screenshots/phishing-detector.png)
+
+# 
+
+# \---
+
+# 
+
+# \## 🔑 Password Strength Analyzer
+
+# 
+
+# Evaluates password complexity and provides recommendations for creating stronger and more secure passwords.
+
+# 
+
+# !\[Password Strength Analyzer](screenshots/password-analyzer.png)
+
+# 
+
+# \---
+
+# 
+
+# \## 🌐 Malicious URL Checker
+
+# 
+
+# Analyzes URLs to determine whether they are safe or potentially malicious, helping users avoid phishing websites and cyber attacks.
+
+# 
+
+# !\[Malicious URL Checker](screenshots/url-checker.png)
+
+# 
+
+# \---
+
+# 
+
+# \## 🤖 AI Cybersecurity Assistant
+
+# 
+
+# An AI-powered cybersecurity assistant that answers security-related questions, provides security best practices, and helps users understand cyber threats.
+
+# 
+
+# !\[AI Cybersecurity Assistant](screenshots/ai-assistant.png)
+
+# 
+
+# \---
+
+# 
+
+# \# ⚙️ Application Workflow
+
+# 
+
+# ```text
+
+# User Login/Register
+
+# &#x20;       │
+
+# &#x20;       ▼
+
+# Choose Security Tool
+
+# &#x20;       │
+
+# &#x20;       ├──────────────┐
+
+# &#x20;       │              │
+
+# &#x20;       ▼              ▼
+
+# Phishing Check    URL Analysis
+
+# &#x20;       │              │
+
+# &#x20;       ├──────────────┤
+
+# &#x20;       ▼
+
+# Password Analysis
+
+# &#x20;       │
+
+# &#x20;       ▼
+
+# AI Cyber Assistant
+
+# &#x20;       │
+
+# &#x20;       ▼
+
+# Security Recommendations
+
+# ```
+
+# 
+
+# \---
+
+# 
+
+# \# 🎯 Key Functionalities
+
+# 
+
+# ✔ Detect phishing emails using AI
+
+# 
+
+# ✔ Analyze password strength
+
+# 
+
+# ✔ Identify suspicious URLs
+
+# 
+
+# ✔ Answer cybersecurity-related queries
+
+# 
+
+# ✔ User authentication system
+
+# 
+
+# ✔ Responsive Flask application
+
+# 
+
+# ✔ Gemini AI integration
+
+# 
+
+# \---
+
+# 
+
+# \# 💡 Future Enhancements
+
+# 
+
+# \- 📱 Mobile Responsive UI
+
+# \- 📂 Upload Email Files
+
+# \- 🌍 Live Threat Intelligence APIs
+
+# \- 📊 Security Dashboard
+
+# \- 📈 User Activity Logs
+
+# \- ☁ Cloud Deployment
+
+# \- 🔍 Malware File Scanner
+
+# \- 🛡 Browser Extension Integration
+
+# 
+
+# \---
+
+# 
+
+# \# 📚 Learning Outcomes
+
+# 
+
+# This project enhanced my understanding of:
+
+# 
+
+# \- Flask Web Development
+
+# \- Python Programming
+
+# \- AI API Integration
+
+# \- SQLite Database
+
+# \- User Authentication
+
+# \- Prompt Engineering
+
+# \- Git \& GitHub
+
+# \- Cybersecurity Fundamentals
+
+# 
+
+# \---
+
+# 
+
+# \# 🤝 Contributing
+
+# 
+
+# Contributions are welcome.
+
+# 
+
+# 1\. Fork the repository
+
+# 
+
+# 2\. Create your feature branch
+
+# 
+
+# ```bash
+
+# git checkout -b feature-name
+
+# ```
+
+# 
+
+# 3\. Commit changes
+
+# 
+
+# ```bash
+
+# git commit -m "Add new feature"
+
+# ```
+
+# 
+
+# 4\. Push
+
+# 
+
+# ```bash
+
+# git push origin feature-name
+
+# ```
+
+# 
+
+# 5\. Open a Pull Request
+
+# 
+
+# \---
+
+# 
+
+# \# 📜 License
+
+# 
+
+# This project is licensed under the MIT License.
+
+# 
+
+# \---
+
+# 
+
+# \# 👨‍💻 Author
+
+# 
+
+# \*\*Yashwanth Chanda\*\*
+
+# 
+
+# GitHub: https://github.com/Yashu1829
+
+# 
+
+# \---
+
+# 
+
+# \# ⭐ Support
+
+# 
+
+# If you found this project helpful, consider giving it a ⭐ on GitHub.
+
+# 
+
+# \---
+
+# 
+
+# <p align="center">
+
+# 
+
+# Made with ❤️ using Flask, Python \& Google Gemini AI
+
+# 
+
+# </p>
+
