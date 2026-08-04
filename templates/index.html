@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cyber Security Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-tab {
+            transition: all 0.3s ease;
+        }
+        .nav-tab:hover {
+            transform: translateY(-2px);
+        }
+        .sample-btn {
+            transition: all 0.2s ease;
+        }
+        .sample-btn:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white shadow-lg">
+            <div class="container mx-auto px-6 py-8">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-shield-alt text-3xl"></i>
+                        <h1 class="text-2xl font-bold">AI CyberShield</h1>
+                    </div>
+                </div>
+                <p class="mt-2 text-blue-100">Your AI-powered cybersecurity companion</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto px-4 py-8">
+            <!-- Navigation Tabs -->
+            <div class="flex flex-wrap gap-2 mb-8 border-b border-gray-200">
+                <button onclick="openTab('phishing-tab')" class="nav-tab tab-active px-6 py-3 bg-blue-600 text-white rounded-t-lg font-medium">
+                    <i class="fas fa-fish mr-2"></i>Phishing Detector
+                </button>
+                <button onclick="openTab('password-tab')" class="nav-tab px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-t-lg font-medium">
+                    <i class="fas fa-key mr-2"></i>Password Analyzer
+                </button>
+                <button onclick="openTab('url-tab')" class="nav-tab px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-t-lg font-medium">
+                    <i class="fas fa-link mr-2"></i>URL Checker
+                </button>
+                <button onclick="openTab('chatbot-tab')" class="nav-tab px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-t-lg font-medium">
+                    <i class="fas fa-robot mr-2"></i>AI Assistant
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Phishing Detector Tab -->
+                <div id="phishing-tab" class="tab-content active">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-fish text-blue-600 mr-2"></i>Phishing Email Detector
+                    </h2>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2" for="email-input">
+                            Paste email/message to analyze:
+                        </label>
+                        <textarea id="email-input" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Paste suspicious email or message here..."></textarea>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="text-sm text-gray-500">Try sample:</span>
+                            {% for email in sample_emails %}
+                            <button onclick="useSample('email-input', `{{ email | safe }}`)" class="sample-btn text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full">
+                                Sample {{ loop.index }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <button onclick="analyzeEmail()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-search mr-2"></i>Analyze Email
+                    </button>
+                    <div id="email-result" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Analysis Result:</h3>
+                        <div id="email-analysis" class="prose max-w-none"></div>
+                    </div>
+                </div>
+
+                <!-- Password Analyzer Tab -->
+                <div id="password-tab" class="tab-content">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-key text-blue-600 mr-2"></i>Password Strength Analyzer
+                    </h2>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2" for="password-input">
+                            Enter a password to analyze:
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter password">
+                            <button onclick="togglePassword('password-input')" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="text-sm text-gray-500">Try sample:</span>
+                            {% for pwd in sample_passwords %}
+                            <button onclick="useSample('password-input', '{{ pwd }}')" class="sample-btn text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full">
+                                Sample {{ loop.index }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <button onclick="analyzePassword()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-search mr-2"></i>Check Strength
+                    </button>
+                    <div id="password-result" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Password Analysis:</h3>
+                        <div id="password-analysis" class="prose max-w-none"></div>
+                    </div>
+                </div>
+
+                <!-- URL Checker Tab -->
+                <div id="url-tab" class="tab-content">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-link text-blue-600 mr-2"></i>Malicious URL Checker
+                    </h2>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2" for="url-input">
+                            Enter URL to check:
+                        </label>
+                        <input type="text" id="url-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="https://example.com">
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="text-sm text-gray-500">Try sample:</span>
+                            {% for url in sample_urls %}
+                            <button onclick="useSample('url-input', '{{ url }}')" class="sample-btn text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full">
+                                Sample {{ loop.index }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <button onclick="checkURL()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-search mr-2"></i>Check URL
+                    </button>
+                    <div id="url-result" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">URL Analysis:</h3>
+                        <div id="url-analysis" class="prose max-w-none"></div>
+                    </div>
+                </div>
+
+                <!-- AI Chatbot Tab -->
+                <div id="chatbot-tab" class="tab-content">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                        <i class="fas fa-robot text-blue-600 mr-2"></i>AI Cybersecurity Assistant
+                    </h2>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2" for="question-input">
+                            Ask me anything about cybersecurity:
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="text" id="question-input" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Type your question here...">
+                            <button onclick="askQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="text-sm text-gray-500">Try asking:</span>
+                            {% for question in sample_questions %}
+                            <button onclick="useSample('question-input', '{{ question }}')" class="sample-btn text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full">
+                                "{{ question }}"
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="chat-result" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">AI Response:</h3>
+                        <div id="ai-response" class="prose max-w-none"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8 mt-12">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-gray-300">© 2025 AI CyberShield. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        function openTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked tab button
+            event.currentTarget.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+            event.currentTarget.classList.add('bg-blue-600', 'text-white');
+        }
+
+        // Toggle password visibility
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = event.currentTarget.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Use sample data
+        function useSample(fieldId, text) {
+            const field = document.getElementById(fieldId);
+            if (field.tagName === 'TEXTAREA') {
+                field.value = text;
+                // Auto-resize textarea
+                field.style.height = 'auto';
+                field.style.height = (field.scrollHeight) + 'px';
+            } else {
+                field.value = text;
+            }
+            field.focus();
+        }
+
+        // Show loading state
+        function showLoading(elementId) {
+            const resultDiv = document.getElementById(elementId);
+            const contentDiv = resultDiv.querySelector('div:last-child');
+            resultDiv.classList.remove('hidden');
+            contentDiv.innerHTML = '<div class="text-center py-4"><i class="fas fa-spinner fa-spin text-blue-500 text-2xl"></i><p class="mt-2 text-gray-600">Analyzing, please wait...</p></div>';
+        }
+
+        // Analyze email
+        async function analyzeEmail() {
+            const email = document.getElementById('email-input').value.trim();
+            if (!email) {
+                alert('Please enter an email to analyze');
+                return;
+            }
+            
+            showLoading('email-result');
+            
+            try {
+                const response = await fetch('/analyze/email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                const data = await response.json();
+                document.getElementById('email-analysis').innerHTML = data.result.replace(/\n/g, '<br>');
+                document.getElementById('email-result').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('email-analysis').innerHTML = 'An error occurred while analyzing the email. Please try again.';
+                document.getElementById('email-result').classList.remove('hidden');
+            }
+        }
+
+        // Analyze password
+        async function analyzePassword() {
+            const password = document.getElementById('password-input').value.trim();
+            if (!password) {
+                alert('Please enter a password to analyze');
+                return;
+            }
+            
+            showLoading('password-result');
+            
+            try {
+                const response = await fetch('/analyze/password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ password })
+                });
+                
+                const data = await response.json();
+                document.getElementById('password-analysis').innerHTML = data.result.replace(/\n/g, '<br>');
+                document.getElementById('password-result').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('password-analysis').innerHTML = 'An error occurred while analyzing the password. Please try again.';
+                document.getElementById('password-result').classList.remove('hidden');
+            }
+        }
+
+        // Check URL
+        async function checkURL() {
+            const url = document.getElementById('url-input').value.trim();
+            if (!url) {
+                alert('Please enter a URL to check');
+                return;
+            }
+            
+            showLoading('url-result');
+            
+            try {
+                const response = await fetch('/analyze/url', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url })
+                });
+                
+                const data = await response.json();
+                document.getElementById('url-analysis').innerHTML = data.result.replace(/\n/g, '<br>');
+                document.getElementById('url-result').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('url-analysis').innerHTML = 'An error occurred while checking the URL. Please try again.';
+                document.getElementById('url-result').classList.remove('hidden');
+            }
+        }
+
+        // Ask question to AI
+        async function askQuestion() {
+            const question = document.getElementById('question-input').value.trim();
+            if (!question) {
+                alert('Please enter a question');
+                return;
+            }
+            
+            showLoading('chat-result');
+            
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question })
+                });
+                
+                const data = await response.json();
+                document.getElementById('ai-response').innerHTML = data.result.replace(/\n/g, '<br>');
+                document.getElementById('chat-result').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('ai-response').innerHTML = 'An error occurred while getting a response. Please try again.';
+                document.getElementById('chat-result').classList.remove('hidden');
+            }
+        }
+
+        // Allow pressing Enter in input fields
+        document.addEventListener('DOMContentLoaded', function() {
+            // Email input
+            document.getElementById('email-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    analyzeEmail();
+                }
+            });
+            
+            // Password input
+            document.getElementById('password-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    analyzePassword();
+                }
+            });
+            
+            // URL input
+            document.getElementById('url-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    checkURL();
+                }
+            });
+            
+            // Question input
+            document.getElementById('question-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    askQuestion();
+                }
+            });
+            
+            // Auto-resize textarea
+            const textarea = document.getElementById('email-input');
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
